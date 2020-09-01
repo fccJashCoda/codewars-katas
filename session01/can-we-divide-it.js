@@ -7,6 +7,8 @@ function isDivideBy(number, a, b) {
   return false;
 }
 
+const isDivideBy = (n, a, b) => n % a === 0 && n % b === 0;
+
 console.log(isDivideBy(-12, 2, -6), true);
 console.log(isDivideBy(-12, 2, -5), false);
 console.log(isDivideBy(45, 1, 6), false);
