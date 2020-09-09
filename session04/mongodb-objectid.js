@@ -1,15 +1,41 @@
 // https://www.codewars.com/kata/52fefe6cb0091856db00030e/train/javascript
-var Mongo = {
+// const Mongo = {
+//   isValid: function (s) {
+//     if (typeof s === 'string' && s.length === 24 && s.match(/^[0-9a-f]+$/g))
+//       return true;
+//     return false;
+//   },
+//   getTimestamp: function (s) {
+//     if (this.isValid(s)) {
+//       return new Date(parseInt(s.slice(0, 8), 16) * 1000);
+//     }
+//     return false;
+//   },
+// };
+
+// const Mongo = {
+//   isValid: function (s) {
+//     if (/^[a-f\d]{24}$/.test(s)) {
+//       return true;
+//     }
+//     return false;
+//   },
+//   getTimestamp: function (s) {
+//     if (this.isValid(s)) {
+//       return new Date(parseInt(s.slice(0, 8), 16) * 1000);
+//     }
+//     return false;
+//   },
+// };
+
+const Mongo = {
   isValid: function (s) {
-    if (typeof s === 'string' && s.length === 24 && s.match(/^[0-9a-f]+$/g))
-      return true;
-    return false;
+    return /^[a-f\d]{24}$/.test(s);
   },
   getTimestamp: function (s) {
-    if (this.isValid(s)) {
-      return new Date(parseInt(s.slice(0, 8), 16) * 1000);
-    }
-    return false;
+    return this.isValid(s)
+      ? new Date(parseInt(s.slice(0, 8), 16) * 1000)
+      : false;
   },
 };
 
